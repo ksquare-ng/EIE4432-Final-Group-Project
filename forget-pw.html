@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>PolyU Exam</title>
+    <script type="text/javascript" src="login.js"></script>
+    <link rel="stylesheet" type="text/css" href="login-style.css">
+</head>
+
+<body>
+    <div id="login">
+        <table id="login-table">
+            <tr>
+                <img src="resources/polyu-logo-long.png">
+            </tr>
+            <tr>
+                <td><h1>Reset Password</h1></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" class="user-input" name="username" placeholder="Username">
+                    <br><span></span>
+                    <input type="password" class="user-input" id="login-password" name="new-password" placeholder="New Password">
+                    <br>
+                    <input type="checkbox" id="show-password" name="show-password" onclick="showPassword()" >
+                    <label for="show-password">Show password</label>
+                </td>
+            </tr>
+            <tr>
+                <td><input class="user-input" type="button" value="Reset Password"></td>
+            </tr>
+        </table>
+    </div>
+</body>

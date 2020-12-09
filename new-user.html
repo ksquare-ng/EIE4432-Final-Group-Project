@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<head>
+    <title>PolyU Exam</title>
+    <script type="text/javascript" src="login.js"></script>
+    <link rel="stylesheet" type="text/css" href="login-style.css">
+</head>
+
+<body>
+    <form id="user-info" action="new-user.php" method="POST">
+        <table id="user-info-table">
+            <tr>
+                <img src="resources/polyu-logo-long.png">
+            </tr>
+            <tr>
+                <td colspan="2"><h1>Sign up</h1></td>
+            </tr>
+            <tr>
+                <td>Profile</td>
+                <td>
+                    <input style="width: 200px" type="file" id="image" name="image" value="Upload Image" accept="image/*">
+                </td>
+            </tr>
+            <tr>
+                <td>Name </td>
+                <td><input class="user-input" type="text" id ="nickname" name="nickname" placeholder="Nickname"></td>
+            </tr>
+            <tr>
+                <td>Email </td>
+                <td><input class="user-input" type="text" id="email" name="email" placeholder="Email"></td>
+            </tr>
+            <tr>
+                <td>Identity </td>
+                <td>
+                    <input type="radio" name="role" value="student" onclick="selectRole()">
+                    <label for="student">Student</label>
+                    <input type="radio" name="role" value="teacher" onclick="selectRole()">
+                    <label for="teacher">Teacher</label>
+                </td>
+            </tr>
+            <tr class="select-student" style="display: none;">
+                <td>Gender </td>
+                <td>
+                    <input type="radio" name="gender" value="male">
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" value="female">
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+            <tr class="select-student" style="display: none;">
+                <td>Birthday </td>
+                <td><input class="user-input" id="date" type="date" name="birthday"></td>
+            </tr>
+            <tr class="select-teacher" style="display: none;">
+                <td>Course </td>
+                <td><input class="user-input" id="course" type="text" name="course" placeholder="Course (Eg. EIE4432)"></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;"><input class="user-input" type="button" value="Create Account" onclick="checkError()"></td>
+            </tr>
+        </table>
+    </form>
+</body>
