@@ -1,5 +1,5 @@
 body {
-    margin: 0px;
+    margin-top: 50px;
     padding: 0px;
     font-family: 'Helvetica Neue', sans-serif;
 }
@@ -10,7 +10,6 @@ ul.navbar-long{
     position: fixed;
     top: 0px;
     width: 100%;
-    background-color: #6B6E70;
 }
 
 .navbar-long li:last-child, li:nth-last-child(2) {
@@ -28,11 +27,9 @@ ul.navbar-long{
 }
 
 .navbar-long a:hover {
-    background-color: #86C232;
-    color: #222629;
+    color: #e0474c;
 }
 
 .navbar-long a.active {
-    background-color: #61892F;
-    color: #222629;
+    color: #b11a21;
 }

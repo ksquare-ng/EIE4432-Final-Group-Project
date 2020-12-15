@@ -42,31 +42,56 @@ function selectRole() {
 
 function checkError() {
     var valid = true;
-    var name = document.getElementById("nickname");
+    var lastName = document.getElementById("last-name");
+    var firstName = document.getElementById("first-name");
     var email = document.getElementById("email");
     var course = document.getElementById("course");
+    var gender = document.getElementsByClassName("gender");
+    var birthday = document.getElementById("birthday");
 
-    var namePattern = /^[a-z]+[a-z\s]*/gi;
+    var firstNamePattern = /^[a-z]+[a-z\s]*/gi;
+    var lastNamePattern = /^[a-z]+[a-z\s]*/gi;
     var emailPattern = /^\S+@\S+\.\S+/gi;
     var coursePattern = /[a-z]+[0-9]+/gi;
-    if (!namePattern.test(name.value)) {
-        name.style.border = "solid #93291b 2px";
-        name.value = '';
+    var birthdayPattern = /^(19|20)\d{2}-(0[1-9]|1[0-2])-(0[1-9]|1\d|2\d|3[01])$/gi;
+
+    if (!lastNamePattern.test(lastName.value)) {
+        lastName.style.border = "solid #e0474c 2px";
+        lastName.value = '';
         valid = false;
     }
-    else name.style.removeProperty("border");
+    else lastName.style.removeProperty("border");
+    if (!firstNamePattern.test(firstName.value)) {
+        firstName.style.border = "solid #e0474c 2px";
+        firstName.value = '';
+        valid = false;
+    }
+    else firstName.style.removeProperty("border");
     if (!emailPattern.test(email.value)) {
-        email.style.border = "solid #93291b 2px";
+        email.style.border = "solid #e0474c 2px";
         email.value = '';
         valid = false;
     }
     else email.style.removeProperty("border");  
     if (!coursePattern.test(course.value) && getRole() == "teacher") {
-        course.style.border = "solid #93291b 2px";
+        course.style.border = "solid #e0474c 2px";
         course.value = '';
         valid = false;
     }
     else course.style.removeProperty("border");
-    
+    if (getRole() == "student") {
+        var flag = true;
+        for (var i = 0; i < course.length; i++) if(course[i].checked) flag = false;
+        if (flag) {
+            valid = false;
+        }
+
+        if (!birthdayPattern.test(birthday.value)) {
+            birthday.style.border = "solid #e0474c 2px";
+            birthday.value = '';
+            valid = false;
+        }
+    }
+
     if (valid) document.getElementById("user-info").submit();
 }
