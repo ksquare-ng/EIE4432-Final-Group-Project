@@ -1,0 +1,34 @@
+.main-content {
+    margin: auto;
+    margin-top: 100px;
+    width: 80%;
+    background-color: #7acfd6 ;
+    min-height: 150px;
+}
+
+.main-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+
+table, td, tr, th {
+    border: solid #005995 2px;
+}
+
+th {
+    align-content: center;
+}
+
+td#no-record {
+    align-content: center;
+    line-height: 150px;
+}
+
+.sidebar a:hover {
+    color: #e0474c;
+}
+
+.sidebar a.active {
+    color: #7acfd6;
+}

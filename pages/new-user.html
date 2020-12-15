@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <head>
-    <title>PolyU Exam</title>
-    <script type="text/javascript" src="login.js"></script>
-    <link rel="stylesheet" type="text/css" href="login-style.css">
+    <title>PolyU Exam | Create Account</title>
+    <script type="text/javascript" src="../script/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style/login-style.css">
 </head>
 
 <body>
-    <form id="user-info" action="new-user.php" method="POST">
+    <form id="user-info" action="../query/new-user.php" method="POST">
         <table id="user-info-table">
             <tr>
-                <img src="resources/polyu-logo-long.png">
+                <a href="../login.html"><img src="../resources/polyu-logo-long.png"></a>
             </tr>
             <tr>
                 <td colspan="2"><h1>Sign up</h1></td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>
+                    <input class="user-input" type="text" id ="username" name="username" placeholder="Username">
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input class="user-input" type="text" id ="password" name="password" placeholder="Password (8 Characters)">
+                </td>
             </tr>
             <tr>
                 <td>Profile</td>

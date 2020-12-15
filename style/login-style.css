@@ -20,10 +20,6 @@ body {
     text-align: center;
 }
 
-img {
-    width: 300px;
-}
-
 #login-table, #user-info-table {
     margin: auto;
     line-height: 40px;
@@ -49,6 +45,10 @@ h1 {
 
 a {
     color: #93291b;
+}
+
+img {
+    width: 300px;
 }
 
 input.user-input {

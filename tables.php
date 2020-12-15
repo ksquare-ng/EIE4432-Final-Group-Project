@@ -3,8 +3,7 @@ include 'config.php';
 
 // sql to create table
 $sql4 = "CREATE TABLE Students (
-    sUsername VARCHAR (30) NOT NULL PRIMARY KEY, 
-    sPassword VARCHAR (30) NOT NULL,
+    studID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
     sFirst VARCHAR(30) NOT NULL,
     sLast VARCHAR(30) NOT NULL,
     sEmail VARCHAR(30) NOT NULL,
@@ -27,13 +26,12 @@ include 'config.php';
 
 // sql to create table
 $sql5 = "CREATE TABLE Teachers (
-    tUsername VARCHAR (30) NOT NULL PRIMARY KEY,
-    tPassword VARCHAR (30) NOT NULL,  
+    teachID INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,  
     tFirst VARCHAR(30) NOT NULL,
     tLast VARCHAR(30) NOT NULL,
     tEmail VARCHAR(30) NOT NULL,
     tCourse VARCHAR (30) NOT NULL,
-    tIMG LONGBLOB
+    sIMG LONGBLOB
     )";
     
     if (mysqli_query($conn, $sql5)) {
@@ -54,16 +52,10 @@ $sql1 = "CREATE TABLE Questions (
     question VARCHAR(50) NOT NULL,
     qType VARCHAR(30) NOT NULL,
     qAnswer VARCHAR(50) NOT NULL,
-    opt1 VARCHAR (50),
-    opt2 VARCHAR (50),
-    opt3 VARCHAR (50),
-    opt4 VARCHAR (50),
-    qScore INT(6) NOT NULL,
-    tID VARCHAR (30),
-    examID INT(6) UNSIGNED,
+    qScore VARCHAR(50) NOT NULL,
     create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (tID) REFERENCES Teachers (tUsername) ON UPDATE CASCADE ON DELETE CASCADE,
-    FOREIGN KEY (examID) REFERENCES Exams (eID) ON UPDATE CASCADE ON DELETE CASCADE
+    tID INT (6) UNSIGNED,
+    FOREIGN KEY (tID) REFERENCES Teachers (teachID) ON UPDATE CASCADE
     )";
     
     if (mysqli_query($conn, $sql1)) {
@@ -86,8 +78,8 @@ $sql3 = "CREATE TABLE Exams (
     eDate DATE,
     eStart TIME,
     eFinish TIME,
-    teachID VARCHAR(30),
-    FOREIGN KEY (teachID) REFERENCES Teachers (tUsername) ON DELETE CASCADE ON UPDATE CASCADE
+    quesID INT(6) UNSIGNED,
+    FOREIGN KEY (quesID) REFERENCES Questions (qID) ON DELETE CASCADE ON UPDATE CASCADE
     )";
     
     if (mysqli_query($conn, $sql3)) {
@@ -104,13 +96,13 @@ include 'config.php';
 
 // sql to create table
 $sql3 = "CREATE TABLE Answers (
-    studentID VARCHAR(30),
+    studentID INT(6) UNSIGNED,
     questionID INT(6) UNSIGNED,
     studAns VARCHAR (50),
     studScore INT (10),
-    examID INT(6) UNSIGNED,
-    FOREIGN KEY (examID) REFERENCES Exams(eID) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (studentID) REFERENCES Students (sUsername) ON DELETE CASCADE ON UPDATE CASCADE,
+    examID INT UNSIGNED,
+    FOREIGN KEY (examID) REFERENCES Exams (eID) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (studentID) REFERENCES Students (studID) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (questionID)  REFERENCES Questions (qID) ON DELETE CASCADE ON UPDATE CASCADE,
     PRIMARY KEY (studentID, questionID) 
     )";

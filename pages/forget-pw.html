@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <head>
-    <title>PolyU Exam</title>
-    <script type="text/javascript" src="login.js"></script>
-    <link rel="stylesheet" type="text/css" href="login-style.css">
+    <title>PolyU Exam | Reset Password</title>
+    <script type="text/javascript" src="../script/login.js"></script>
+    <link rel="stylesheet" type="text/css" href="../style/login-style.css">
 </head>
 
 <body>
-    <div id="login">
+    <form id = "login" action="../query/forget-pw.php" method="POST">
         <table id="login-table">
             <tr>
-                <img src="resources/polyu-logo-long.png">
+                <a href="../login.html"><img src="../resources/polyu-logo-long.png"></a>
             </tr>
             <tr>
                 <td><h1>Reset Password</h1></td>
@@ -18,15 +18,15 @@
                 <td>
                     <input type="text" class="user-input" name="username" placeholder="Username">
                     <br><span></span>
-                    <input type="password" class="user-input" id="login-password" name="new-password" placeholder="New Password">
+                    <input type="password" class="user-input" id="login-password" name="new-password" placeholder="New Password (8 Characters)">
                     <br>
                     <input type="checkbox" id="show-password" name="show-password" onclick="showPassword()" >
                     <label for="show-password">Show password</label>
                 </td>
             </tr>
             <tr>
-                <td><input class="user-input" type="button" value="Reset Password"></td>
+                <td><input class="user-input" type="submit" value="Reset Password"></td>
             </tr>
         </table>
-    </div>
+    </form>
 </body>
