@@ -83,13 +83,19 @@ label #cancel {
     left: 195px;
 }
 #check:checked~ section {
-    margin-left: 250px;
+   margin-left: 150px;
 }
 section{
-    background-color: #042331;
+    background-color: white;
     background-position: center;
     background-size: cover;
+    height: 100vh;
     transition: all .5s;
-    margin-left: 200px;
-    color: white;
+    color: black;
+}
+.header {
+    margin-left: 120px;
+}
+.info {
+    margin-left: 120px;
 }
