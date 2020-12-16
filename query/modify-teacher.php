@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<?php
+    require 'login-database.php';
+
+    $lastName = $_POST["last-name"];
+    $firstName = $_POST["first-name"];
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $email = $_POST["email"];
+    $image = $_POST["image"];
+    $course = $_POST["course"];
+    $oldUsername = $_POST["oldUsername"];
+
+    $query = "SELECT * FROM TEACHERS WHERE tUsername = '$username'";
+    $result1 = mysqli_query($connect, $query);
+    $row = mysqli_fetch_assoc($result1);
+    if ($row != null) echo '<script>alert("Username existed!")
+    window.location.href = "../pages/admin-modify-user.php?username='.$oldUsername.'&role=teacher";
+    </script>';
+
+    $query = "UPDATE TEACHERS SET tFirst = '$firstName', tLast = '$lastName', tEmail = '$email', tCourse = '$course', tIMG = '$image', tUsername = '$username', tPassword = '$password' WHERE tUsername = '$oldUsername'";
+
+    $result = mysqli_query($connect, $query);
+
+    if($result) echo "<script>alert('User modified!');
+    window.location.href = '../pages/home-page-admin.php';
+    </script>";
+?>
+</html>
