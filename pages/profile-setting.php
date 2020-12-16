@@ -24,7 +24,7 @@
                 <header> Sidebar </header>
                 <ul>
                     <li><a href = "home-page.php"><i class = "fas fa-qrcode active"></i>Dashboard</a></li>
-                    <li><a href = "#"><i class = "fas fa-stream"></i>Exams</a></li>
+                    <li><a href = "student-exam-list.php"><i class = "fas fa-stream"></i>Exams</a></li>
                     <li><a href = "profile-setting.php" class="active"><i class="fas fa-user-cog"></i>Profile</a></li>
                     <li><a href = "../login.html" onclick="logout()"><i class = "fas fa-power-off"></i>Logout</a></li>
                 </ul>

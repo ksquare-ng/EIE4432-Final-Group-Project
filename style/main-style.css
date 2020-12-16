@@ -118,3 +118,7 @@ input:read-only {
     background-color: #f1f0ee;
     color:grey;
 }
+
+label {
+    margin-left: 50px;
+}
