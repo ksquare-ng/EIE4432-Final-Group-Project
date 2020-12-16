@@ -31,5 +31,7 @@
         window.location.href = '../pages/profile-setting.php';
         </script>";
     }
+    
+    mysqli_close($connect);
 ?>
 </html>

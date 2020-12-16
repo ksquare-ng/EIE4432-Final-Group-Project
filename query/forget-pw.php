@@ -27,5 +27,7 @@
     echo "<script>alert('New password is set.');
     window.location.href = '../login.html';
     </script>";
+    
+    mysqli_close($connect);
 ?>
 </html>

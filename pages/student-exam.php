@@ -76,6 +76,8 @@
                     echo "</td></tr>";
                     $count++;
                 }
+                
+            mysqli_close($connect);
             ?>
             <tr>
                 <td><input type='submit' value='Submit Answer'></td>

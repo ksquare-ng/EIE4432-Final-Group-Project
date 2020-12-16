@@ -67,6 +67,7 @@
                     $count++;
                 }
                 if ($count != 1) echo "<tr><td>Total Score: <?php echo ".$totalScore['SUM(studScore)'].";?></td></tr>";
+            mysqli_close($connect);
             ?>
             </table>
         </div>

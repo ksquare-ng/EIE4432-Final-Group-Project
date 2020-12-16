@@ -40,5 +40,6 @@
     if($result) echo "<script>alert('Account created!');
     window.location.href = '../login.html';
     </script>";
+    mysqli_close($connect);
 ?>
 </html>

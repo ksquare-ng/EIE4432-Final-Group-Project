@@ -44,6 +44,8 @@
                         <td><input type='button' value='Enter'></td>;
                     </tr>";
             }
+            
+            mysqli_close($connect);
         ?>
     </table>
 </div>

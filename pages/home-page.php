@@ -54,6 +54,8 @@
             else if ($role == "teacher") require "home-page-teacher.php";
             else if ($role == "admin") require "home-page-admin.php";
         }
+        
+        mysqli_close($connect);
     ?>
 </body>
 </html>

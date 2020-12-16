@@ -153,6 +153,8 @@
                 </form>
             </div>';
             }
+            
+            mysqli_close($connect);
         ?>
     </body>
 </html>

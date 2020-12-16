@@ -50,6 +50,8 @@
                 if ($currS <= $today && $currE >= $today) echo "<td><button type='submit' name='take-exam' value='".$row['eID']."'>Enter</button></td></tr>";
                 else if ($currS > $today) echo "<td><button type='submit' name='take-exam' value='".$row['eID']."'disabled>Enter</button></td></tr>";
             }
+            
+            mysqli_close($connect);
         ?>
     </table>
     </form>

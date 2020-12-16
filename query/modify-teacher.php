@@ -26,5 +26,6 @@
     if($result) echo "<script>alert('User modified!');
     window.location.href = '../pages/home-page-admin.php';
     </script>";
+    mysqli_close($connect);
 ?>
 </html>

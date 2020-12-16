@@ -4,4 +4,5 @@
 
     $query = "DELETE FROM STUDENTS WHERE sUsername ='$username'";
     $result = mysqli_query($connect, $query);
+    mysqli_close($connect);
 ?>
