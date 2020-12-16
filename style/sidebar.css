@@ -1,12 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
-
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     list-style: none;
     text-decoration: none;
 }
-
 body {
     font-family: 'Josefin Sans', sans-serif;
 }
@@ -88,16 +86,48 @@ label #cancel {
    margin-left: 150px;
 }
 section{
-    background-color: white;
+    background-color:white;
     background-position: center;
     background-size: cover;
     height: 100vh;
     transition: all .5s;
-    color: black;
+    color: #042331;
 }
 .header {
-    margin-left: 120px;
+    margin-left: 110px;
+    font-size: 25px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 20px 10px;
+    padding-top: 50px;
 }
 .info {
-    margin-left: 120px;
+    margin-left: 110px;
+    font-size: 20px;
+    padding: 12px 15px;
+    text-align: center;
 }
+.info .content-table {
+    border-collapse:collapse;
+    margin: 25px 0;
+    font-size: 18px;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.info .content-table thead tr{
+    background-color: #063146;
+    color: white;
+    text-align: left;
+    font-weight: bold;
+ }
+ .info .content-table th,
+ .info .content-table td {
+     padding: 12px 15px;
+ }
+ .info .content-table tbody tr {
+     border-bottom: 1px solid #dddddd;
+ }
+ .info .content-table tbody tr:nth-of-type(even) {
+     background-color: #f3f3f3;
+ }
