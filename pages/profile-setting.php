@@ -31,53 +31,96 @@
                 </ul>
             </div>  
         </div>
+        <div>
+            
+        </div>
         <?php
             if ($role == "student") {
                 echo 
-                '<div class="settings">
+                '<form id="modify-student" action="../query/modify-student-user.php" method="POST">
+                <div class="settings">
                 <h2>Profile Settings</h2>
                 <table id="user-info">
                     <tr>
+                        <td>Old Username</td>
+                        <td>
+                            <input class="user-input" type="text" id ="old-username" name="oldUsername" value="'.$row['sUsername'].'" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>New Username</td>
+                        <td>
+                            <input class="user-input" type="text" id ="username" name="username" placeholder="Username">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password</td>
+                        <td>
+                            <input class="user-input" type="text" id ="password" name="password" placeholder="Password (8 Characters)" value="'.$row['sPassword'].'">
+                        </td>
+                    </tr>
+                    <tr>
                         <td>Profile</td>
-                        <td><input style="width: 200px" type="file" id="image" name="image" value="Upload Image" accept="image/*" value=""></td>
+                        <td><input style="width: 200px" type="file" id="image" name="image" value="Upload Image" accept="image/*" value="'.$row['sIMG'].'"></td>
                     </tr>
                     <tr>
                         <td>Name</td>
                         <td>
-                        <input class="user-input" type="text" id ="last-name" name="last-name" placeholder="Last Name">
-                        <input class="user-input" type="text" id ="first-name" name="first-name" placeholder="First Name">
+                        <input class="user-input" type="text" id ="last-name" name="last-name" placeholder="Last Name" value="'.$row['sLast'].'">
+                        <input class="user-input" type="text" id ="first-name" name="first-name" placeholder="First Name" value="'.$row['sFirst'].'">
                         </td>
                     </tr>
                     <tr>
                         <td>Email</td>
-                        <td><input class="user-input" type="text" id="email" name="email" placeholder="Email"></td>
-                    </tr>
-                    <tr>
+                        <td><input class="user-input" type="text" id="email" name="email" placeholder="Email" value="'.$row['sEmail'].'"></td>
+                    </tr>';
+                    if ($row['sGender'] == 'male') {
+                        echo '<tr>
                         <td>Gender</td>
                         <td>
-                            <input type="radio" name="gender" value="male">
+                            <input type="radio" name="gender" value="male" checked="checked">
                             <label for="male">Male</label>
                             <input type="radio" name="gender" value="female">
                             <label for="female">Female</label>
                         </td>
-                    </tr>
-                    <tr>
+                        </tr>';
+                    }
+                    else if ($row['sGender'] == 'female') {
+                        echo '<tr>
+                        <td>Gender</td>
+                        <td>
+                            <input type="radio" name="gender" value="male">
+                            <label for="male">Male</label>
+                            <input type="radio" name="gender" value="female" checked="checked">
+                            <label for="female">Female</label>
+                        </td>
+                        </tr>';
+                    }  
+                    echo '<tr>
                         <td>Birthday </td>
-                        <td><input class="user-input" id="birthday" type="date" name="birthday"></td>
+                        <td><input class="user-input" id="birthday" type="date" name="birthday" value="'.$row['sBday'].'"></td>
                     </tr>
                 </table>
-                <input style="margin-top: 30px" type="submit" class="user-input">
+                <div style="text-align:center;"><input style="margin-top: 30px; width: 390px;" type="button" onclick="checkErrorStudent()" class="user-input" value="Submit"></div>
+                </form>
             </div>';
             }
             else if ($role == "teacher") {
                 echo 
-                '<div class="settings">
+                '<form id="modify-teacher" action="../query/modify-teacher-user.php" method="POST">
+                <div class="settings">
                 <h2>Profile Settings</h2>
                 <table id="user-info">
                     <tr>
-                        <td>Username</td>
+                        <td>Old Username</td>
                         <td>
-                            <input class="user-input" type="text" id ="username" name="username" placeholder="Username" value="'.$row['tUsername'].'">
+                            <input class="user-input" type="text" id ="old-username" name="oldUsername" value="'.$row['tUsername'].'" readonly="readonly">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>New Username</td>
+                        <td>
+                            <input class="user-input" type="text" id ="username" name="username" placeholder="Username">
                         </td>
                     </tr>
                     <tr>
@@ -107,7 +150,8 @@
                     <td><input class="user-input" id="course" type="text" name="course" placeholder="Course (Eg. EIE4432)" value="'.$row['tCourse'].'"></td>
                     </tr>
                 </table>
-                <input style="margin-top: 30px" type="submit" class="user-input">
+                <div style="text-align:center;"><input style="margin-top: 30px; width: 390px;" type="button" onclick="checkErrorTeacher()" class="user-input" value="Submit"></div>
+                </form>
             </div>';
             }
         ?>

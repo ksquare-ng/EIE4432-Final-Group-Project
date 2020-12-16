@@ -9,33 +9,37 @@
 </head>
 <body>
     <?php
-        require '../query/login-database.php';
-
-        $username = $_POST["username"];
-        $password = $_POST["password"];
-        $dbPassword = "admin";
-
-        $query = "SELECT sUsername, sPassword, sLast, sFirst FROM STUDENTS WHERE sUsername = '$username'";
-        $result = mysqli_query($connect, $query);
-        $dbPassword1 = mysqli_fetch_assoc($result);
-        $query = "SELECT tUsername, tPassword, tLast, tFirst FROM TEACHERS WHERE tUsername = '$username'";
-        $result = mysqli_query($connect, $query);
-        $dbPassword2 = mysqli_fetch_assoc($result);
-
-        if ($dbPassword1 != null) {
-            $dbPassword = $dbPassword1["sPassword"];
-            $dbRole = "student";
-        }
-        else if ($dbPassword2 != null) {
-            $dbPassword = $dbPassword2["tPassword"];
-            $dbRole = "teacher";
-        }
-        else if ($username == "admin") $dbRole = "admin";
-
         if (!isset($_COOKIE["username"])) {
+            require '../query/login-database.php';
+
+            $username = $_POST["username"];
+            $password = $_POST["password"];
+            $dbPassword = "admin";
+
+            $query = "SELECT sUsername, sPassword, sLast, sFirst FROM STUDENTS WHERE sUsername = '$username'";
+            $result = mysqli_query($connect, $query);
+            $dbPassword1 = mysqli_fetch_assoc($result);
+            $query = "SELECT tUsername, tPassword, tLast, tFirst FROM TEACHERS WHERE tUsername = '$username'";
+            $result = mysqli_query($connect, $query);
+            $dbPassword2 = mysqli_fetch_assoc($result);
+
+            if ($dbPassword1 != null) {
+                $dbPassword = $dbPassword1["sPassword"];
+                $dbRole = "student";
+            }
+            else if ($dbPassword2 != null) {
+                $dbPassword = $dbPassword2["tPassword"];
+                $dbRole = "teacher";
+            }
+            else if ($username == "admin") $dbRole = "admin";
+
             if($dbPassword == $password) {
                 setcookie("username", $username, time() + 86400, '/'); #only save non-sensitive data in cookies
                 setcookie("role", $dbRole, time() + 86400, '/');
+
+                if ($dbRole == "student") require "home-page-student.php";
+                else if ($dbRole == "teacher") require "home-page-teacher.php";
+                else if ($dbRole == "admin") require "home-page-admin.php";
             }
             else {
                 echo "<script>alert('Wrong username or password');  
@@ -43,12 +47,13 @@
                     </script>";
             }
         }
-    ?>
+        else {
+            $role = $_COOKIE['role'];
 
-    <?php
-        if ($dbRole == "student") require "home-page-student.php";
-        else if ($dbRole == "teacher") require "home-page-teacher.php";
-        else if ($dbRole == "admin") require "home-page-admin.php";
+            if ($role == "student") require "home-page-student.php";
+            else if ($role == "teacher") require "home-page-teacher.php";
+            else if ($role == "admin") require "home-page-admin.php";
+        }
     ?>
 </body>
 </html>

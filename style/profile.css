@@ -44,3 +44,8 @@ input.user-input {
 .sidebar a.active {
     color: #7acfd6;
 }
+
+input:read-only {
+    background-color: #f1f0ee;
+    color:grey;
+}
