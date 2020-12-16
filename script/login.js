@@ -1,6 +1,6 @@
 function showPassword() {
     var checkBox = document.getElementById("show-password");
-    var inputPassword = document.getElementById("login-password");
+    var inputPassword = document.getElementById("password");
     if (checkBox.checked == true) {
         inputPassword.type = "text";
     }
@@ -121,7 +121,7 @@ function checkError1() {
     var valid = true;
 
     var username = document.getElementById("username");
-    var password = document.getElementById("new-password");
+    var password = document.getElementById("password");
     var usernamePattern = /^[a-z0-9]+/gi;
     var passwordPattern = /^\S{8,}/gi;
 
@@ -137,6 +137,24 @@ function checkError1() {
         valid = false;
     }
     else password.style.removeProperty("border");
+
+    if (valid) document.getElementById("login").submit();
+}
+
+function checkError2() {
+    var valid = true;
+
+    var username = document.getElementById("username");
+    var password = document.getElementById("password");
+    
+    if (username.value == '') {
+        username.style.border = "solid #e0474c 2px";
+        valid = false;
+    }
+    if (password.value == '') {
+        password.style.border = "solid #e0474c 2px";
+        valid = false;
+    }
 
     if (valid) document.getElementById("login").submit();
 }

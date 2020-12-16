@@ -13,11 +13,12 @@
 
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $dbPassword = "admin";
 
-        $query = "SELECT sUsername, sPassword FROM STUDENTS WHERE sUsername = '$username'";
+        $query = "SELECT sUsername, sPassword, sLast, sFirst FROM STUDENTS WHERE sUsername = '$username'";
         $result = mysqli_query($connect, $query);
         $dbPassword1 = mysqli_fetch_assoc($result);
-        $query = "SELECT tUsername, tPassword FROM TEACHERS WHERE tUsername = '$username'";
+        $query = "SELECT tUsername, tPassword, tLast, tFirst FROM TEACHERS WHERE tUsername = '$username'";
         $result = mysqli_query($connect, $query);
         $dbPassword2 = mysqli_fetch_assoc($result);
 
@@ -29,11 +30,12 @@
             $dbPassword = $dbPassword2["tPassword"];
             $dbRole = "teacher";
         }
+        else if ($username == "admin") $dbRole = "admin";
 
         if (!isset($_COOKIE["username"])) {
             if($dbPassword == $password) {
-                setcookie("username", $username, time() + 1800, '/'); #only save non-sensitive data in cookies
-                setcookie("role", $dbRole, time() + 1800, '/');
+                setcookie("username", $username, time() + 86400, '/'); #only save non-sensitive data in cookies
+                setcookie("role", $dbRole, time() + 86400, '/');
             }
             else {
                 echo "<script>alert('Wrong username or password');  
@@ -42,28 +44,11 @@
             }
         }
     ?>
-    <div>
-        <input type = "checkbox" id = "check">
-        <label for = "check">
-        <i class = "fas fa-bars" id = "btn"></i>
-        <i class = "fas fa-times" id = "cancel"></i>
-        </label>
-        <div class = "sidebar">
-            <header> Sidebar </header>
-            <ul>
-                <li><a href = "home-page.php" class="active"><i class = "fas fa-qrcode active"></i>Dashboard</a></li>
-                <li><a href = "#"><i class = "fas fa-stream"></i>Exams</a></li>
-                <li><a href = "#"><i class = "fas fa-chalkboard-teacher"></i>Grades</a></li>
-                <li><a href = "profile-setting.php"><i class="fas fa-user-cog"></i>Profile</a></li>
-                <li><a href = "../login.html" onclick="logout()"><i class = "fas fa-power-off"></i>Logout</a></li>
-            </ul>
-        </div>  
-    </div>
 
-    <div content>
-        <table>
-<scipt>document.getElements</scipt>
-        </table>
-    </div>
+    <?php
+        if ($dbRole == "student") require "home-page-student.php";
+        else if ($dbRole == "teacher") require "home-page-teacher.php";
+        else if ($dbRole == "admin") require "home-page-admin.php";
+    ?>
 </body>
 </html>

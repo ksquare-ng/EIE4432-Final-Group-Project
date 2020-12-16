@@ -1,28 +1,82 @@
-.main-content {
-    margin: auto;
-    margin-top: 100px;
-    width: 80%;
-    background-color: #7acfd6 ;
-    min-height: 150px;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #f1f0ee;
+}
+
+.welcome-message {
+    margin-left: 300px;
+    margin-right: auto;
+    margin-top: 0px;
+    text-align: center;
+    width: 75%;
+    padding-top: 30px;
+}
+
+.main-content, .sub-content {
+    margin-left: 300px;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    display: block;
+    width: 75%;
+    background-color: white;
+    padding: 20px;
+}
+
+.add-content {
+    margin-left: 300px;
+    margin-right: auto;
+    margin-top: 30px;
+    display: block;
+    width: 75%;
+    background-color: white;
+    padding: 20px;
 }
 
 .main-content table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 20px;
 }
 
-table, td, tr, th {
+.sub-content table {
+    width: 100%;
+}
+
+.add-content table td:nth-child(1) {
+    min-width: 150px;
+}
+
+.add-content table td {
+    padding: 10px;
+    height: 70px;
+}
+
+.add-content table {
+    min-height: 75%;
+    margin:auto;
+}
+
+.main-content table, .main-content td, .main-content tr, .main-content th {
     border: solid #005995 2px;
+    line-height: 50px;
+}
+
+.sub-content table, .sub-content td, .sub-content tr, .sub-content th {
+    line-height: 50px;
+}
+
+.add-content table, .add-content td, .add-content tr, .add-content th {
+    line-height: 50px;
+}
+
+.main-content tr:first-child {
+    background-color: #7acfd6;
 }
 
 th {
     align-content: center;
-}
-
-td#no-record {
-    align-content: center;
-    line-height: 150px;
 }
 
 .sidebar a:hover {
@@ -31,4 +85,21 @@ td#no-record {
 
 .sidebar a.active {
     color: #7acfd6;
+}
+
+.user-input {
+    height: 30px;
+    width: 90%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.add-content .user-input {
+    width: 100%;
+    height: 40px;
+}
+
+input:read-only {
+    background-color: #f1f0ee;
+    color:grey;
 }

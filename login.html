@@ -19,16 +19,16 @@
             </tr>
             <tr>
                 <td>
-                    <input type="text" class="user-input" name="username" placeholder="Username">
+                    <input type="text" class="user-input" id="username" name="username" placeholder="Username">
                     <br><span> </span>
-                    <input type="password" class="user-input" id="login-password" name="password" placeholder="Password">
+                    <input type="password" class="user-input" id="password" name="password" placeholder="Password">
                     <br>
                     <input type="checkbox" id="show-password" name="show-password" onclick="showPassword()" >
                     <label for="show-password">Show password</label>
                 </td>
             </tr>
             <tr>
-                <td><input class="user-input" type="submit" value="Log In"></td>
+                <td><input class="user-input" type="button" onclick="checkError2()" value="Log In"></td>
             </tr>
                 <td><a href="pages/forget-pw.html">Forgot your password?</td>
             </tr>

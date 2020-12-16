@@ -12,7 +12,7 @@
 
 <html>
     <head>
-        <title>PolyU Exam | Home</title>
+        <title>PolyU Exam | Settings</title>
         <link rel="stylesheet" type="text/css" href="../style/profile.css">
         <script type="text/javascript" src="../script/main-page.js"></script>
         <link rel = "stylesheet" href = "../style/sidebar.css">
@@ -20,11 +20,6 @@
     </head>
     <body>
         <div>
-            <input type = "checkbox" id = "check">
-            <label for = "check">
-            <i class = "fas fa-bars" id = "btn"></i>
-            <i class = "fas fa-times" id = "cancel"></i>
-            </label>
             <div class = "sidebar">
                 <header> Sidebar </header>
                 <ul>
@@ -44,7 +39,7 @@
                 <table id="user-info">
                     <tr>
                         <td>Profile</td>
-                        <td><input style="width: 200px" type="file" id="image" name="image" value="Upload Image" accept="image/*"></td>
+                        <td><input style="width: 200px" type="file" id="image" name="image" value="Upload Image" accept="image/*" value=""></td>
                     </tr>
                     <tr>
                         <td>Name</td>

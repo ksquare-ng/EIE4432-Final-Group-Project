@@ -2,6 +2,7 @@
     <title>PolyU Exam | Home</title>
     <link rel="stylesheet" type="text/css" href="../style/main-style.css">
     <script type="text/javascript" src="../script/main-page.js"></script>
+    <script type="text/javascript" src="../script/admin.js"></script>
     <link rel = "stylesheet" href = "../style/sidebar.css">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>

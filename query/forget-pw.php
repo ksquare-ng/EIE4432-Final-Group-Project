@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <?php
     require 'login-database.php';
 
@@ -20,3 +22,4 @@
         </script>";
     }
 ?>
+</html>
